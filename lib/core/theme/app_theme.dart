@@ -7,7 +7,7 @@ class AppTheme {
       useMaterial3: true,
       fontFamily: 'Roboto',
       brightness: Brightness.light,
-      colorScheme: ColorScheme.light(
+      colorScheme: const ColorScheme.light(
         primary: AppColors.primary,
         secondary: AppColors.secondaryLight,
         surface: AppColors.secondaryBackgroundLight,
@@ -17,7 +17,7 @@ class AppTheme {
         error: AppColors.error,
       ),
       scaffoldBackgroundColor: AppColors.backgroundLight,
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         backgroundColor: AppColors.primary,
         elevation: 0,
         toolbarHeight: 65,
@@ -33,7 +33,7 @@ class AppTheme {
         elevation: 2,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
-      textTheme: TextTheme(
+      textTheme: const TextTheme(
         displayLarge: TextStyle(
           color: AppColors.textPrimaryLight,
           fontSize: 32,
@@ -81,19 +81,19 @@ class AppTheme {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: AppColors.primary),
+          borderSide: const BorderSide(color: AppColors.primary),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: AppColors.error),
+          borderSide: const BorderSide(color: AppColors.error),
         ),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16,
           vertical: 12,
         ),
       ),
-      iconTheme: IconThemeData(color: AppColors.iconPrimary),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      iconTheme: const IconThemeData(color: AppColors.iconPrimary),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: AppColors.backgroundLight,
         selectedItemColor: AppColors.primary,
         unselectedItemColor: AppColors.iconDisabledLight,
@@ -106,7 +106,7 @@ class AppTheme {
       useMaterial3: true,
       fontFamily: 'Roboto',
       brightness: Brightness.dark,
-      colorScheme: ColorScheme.dark(
+      colorScheme: const ColorScheme.dark(
         primary: AppColors.primary,
         secondary: AppColors.secondaryDark,
         surface: AppColors.secondaryBackgroundDark,
@@ -116,7 +116,7 @@ class AppTheme {
         error: AppColors.error,
       ),
       scaffoldBackgroundColor: AppColors.backgroundDark,
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         backgroundColor: AppColors.primary,
         elevation: 0,
         toolbarHeight: 65,
@@ -132,7 +132,7 @@ class AppTheme {
         elevation: 2,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
-      textTheme: TextTheme(
+      textTheme: const TextTheme(
         displayLarge: TextStyle(
           color: AppColors.textPrimaryDark,
           fontSize: 32,
@@ -172,7 +172,7 @@ class AppTheme {
         fillColor: AppColors.inputBackgroundDark,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: AppColors.primary),
+          borderSide: const BorderSide(color: AppColors.primary),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
@@ -180,19 +180,19 @@ class AppTheme {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: AppColors.primary),
+          borderSide: const BorderSide(color: AppColors.primary),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: AppColors.error),
+          borderSide: const BorderSide(color: AppColors.error),
         ),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16,
           vertical: 12,
         ),
       ),
-      iconTheme: IconThemeData(color: AppColors.iconPrimary),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      iconTheme: const IconThemeData(color: AppColors.iconPrimary),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: AppColors.backgroundDark,
         selectedItemColor: AppColors.primary,
         unselectedItemColor: AppColors.iconDisabledDark,
