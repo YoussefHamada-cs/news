@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/core/resources/app_colors.dart';
-import '../data/onboarding_item.dart';
+import '../../data/onboarding_item.dart';
 
 class OnboardingPage extends StatelessWidget {
   final OnboardingItem item;

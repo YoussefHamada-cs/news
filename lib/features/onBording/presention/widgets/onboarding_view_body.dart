@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news/features/onBording/presention/widgets/skip_button.dart';
-import '../data/onboarding_data.dart';
-import '../data/onboarding_item.dart';
+import '../../data/onboarding_data.dart';
+import '../../data/onboarding_item.dart';
 import 'onboarding_page.dart';
 import 'page_indicators.dart';
 import 'previous_button.dart';
