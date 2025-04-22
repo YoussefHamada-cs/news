@@ -86,4 +86,6 @@ class AppColors {
   static Color grey700 = Colors.grey[700]!;
   static Color grey850 = Colors.grey[850]!;
   static Color grey900 = Colors.grey[900]!;
+  static const Color purple = Color(0xff8b80c7);
+  static const Color darkPurple = Color(0xff2d2a3f);
 }
