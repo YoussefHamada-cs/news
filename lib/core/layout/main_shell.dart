@@ -16,11 +16,12 @@ class MainShell extends StatelessWidget {
         currentIndex: _calculateSelectedIndex(state),
         onTap: (index) => _onItemTapped(index, context),
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'News'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: 'Notifications',
+              icon: Icon(Icons.category), label: 'Categories'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bookmark_border),
+            label: 'bookmark',
           ),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
@@ -35,9 +36,9 @@ class MainShell extends StatelessWidget {
         path.startsWith(AppPaths.featuredNews) ||
         path.startsWith(AppPaths.newsDetail)) {
       return 0;
-    } else if (path.startsWith(AppPaths.search)) {
+    } else if (path.startsWith(AppPaths.categories)) {
       return 1;
-    } else if (path.startsWith(AppPaths.notification)) {
+    } else if (path.startsWith(AppPaths.bookmark)) {
       return 2;
     } else if (path.startsWith(AppPaths.profile) ||
         path.startsWith(AppPaths.profileEdit)) {
@@ -53,10 +54,10 @@ class MainShell extends StatelessWidget {
         context.go(AppPaths.home);
         break;
       case 1:
-        context.go(AppPaths.search);
+        context.go(AppPaths.categories);
         break;
       case 2:
-        context.go(AppPaths.notification);
+        context.go(AppPaths.bookmark);
         break;
       case 3:
         context.go(AppPaths.profile);

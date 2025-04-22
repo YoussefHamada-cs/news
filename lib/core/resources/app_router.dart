@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news/core/layout/main_shell.dart';
 import 'package:news/core/resources/app_routes.dart';
+import 'package:news/features/news/presention/views/news_view.dart';
+import 'package:news/features/news/presention/views/search_view.dart';
 import 'package:news/features/onBording/presention/views/onbording_view.dart';
 
 class AppRouter {
@@ -22,11 +24,9 @@ class AppRouter {
         routes: [
           // ==================== Home Tab Routes ====================
           GoRoute(
-            path: AppPaths.home,
-            name: AppRoutes.home,
-            builder: (context, state) =>
-                const Scaffold(body: Center(child: Text('Home'))),
-          ),
+              path: AppPaths.home,
+              name: AppRoutes.home,
+              builder: (context, state) => const NewsView()),
           GoRoute(
             path: AppPaths.featuredNews,
             builder: (context, state) =>
@@ -41,8 +41,8 @@ class AppRouter {
           // ==================== Search Tab Routes ====================
           GoRoute(
             path: AppPaths.search,
-            builder: (context, state) =>
-                const Scaffold(body: Center(child: Text('Search'))),
+            name: AppRoutes.search,
+            builder: (context, state) => const SearchView(),
           ),
 
           // ==================== Notification Tab Routes ====================
@@ -63,26 +63,25 @@ class AppRouter {
             builder: (context, state) =>
                 const Scaffold(body: Center(child: Text('Profile Edit'))),
           ),
+          // ==================== Category Routes ====================
+          GoRoute(
+            path: AppPaths.categories,
+            builder: (context, state) =>
+                const Scaffold(body: Center(child: Text('Categories'))),
+          ),
+          GoRoute(
+            path: AppPaths.newsByCategory,
+            builder: (context, state) =>
+                const Scaffold(body: Center(child: Text('News By Category'))),
+          ),
+
+          // ==================== Bookmark Routes ====================
+          GoRoute(
+            path: AppPaths.bookmark,
+            builder: (context, state) =>
+                const Scaffold(body: Center(child: Text('Bookmark'))),
+          ),
         ],
-      ),
-
-      // ==================== Category Routes ====================
-      GoRoute(
-        path: AppPaths.categories,
-        builder: (context, state) =>
-            const Scaffold(body: Center(child: Text('Categories'))),
-      ),
-      GoRoute(
-        path: AppPaths.newsByCategory,
-        builder: (context, state) =>
-            const Scaffold(body: Center(child: Text('News By Category'))),
-      ),
-
-      // ==================== Bookmark Routes ====================
-      GoRoute(
-        path: AppPaths.bookmark,
-        builder: (context, state) =>
-            const Scaffold(body: Center(child: Text('Bookmark'))),
       ),
     ],
   );
