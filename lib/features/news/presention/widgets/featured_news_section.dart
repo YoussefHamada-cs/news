@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:news/core/resources/app_routes.dart';
 import 'package:news/core/resources/app_strings.dart';
 import 'package:news/features/news/presention/widgets/featured_news_card.dart';
 
@@ -20,7 +22,9 @@ class FeaturedNewsSection extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 )),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                context.pushNamed(AppRoutes.featuredNews);
+              },
               child: const Text(AppStrings.seeAll),
             ),
           ],

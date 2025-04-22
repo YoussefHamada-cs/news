@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news/core/layout/main_shell.dart';
 import 'package:news/core/resources/app_routes.dart';
+import 'package:news/features/news/presention/views/featured_news_view.dart';
 import 'package:news/features/news/presention/views/news_view.dart';
 import 'package:news/features/news/presention/views/search_view.dart';
 import 'package:news/features/onBording/presention/views/onbording_view.dart';
@@ -29,8 +30,8 @@ class AppRouter {
               builder: (context, state) => const NewsView()),
           GoRoute(
             path: AppPaths.featuredNews,
-            builder: (context, state) =>
-                const Scaffold(body: Center(child: Text('Featured News'))),
+            name: AppRoutes.featuredNews,
+            builder: (context, state) => const FeaturedNewsView(),
           ),
           GoRoute(
             path: AppPaths.newsDetail,

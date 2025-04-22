@@ -37,7 +37,7 @@ class LatestNewsSection extends StatelessWidget {
         ListView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          itemCount: 2,
+          itemCount: 5,
           itemBuilder: (context, index) {
             return const Padding(
               padding: EdgeInsets.only(bottom: 16),
