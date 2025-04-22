@@ -84,4 +84,6 @@ class AppColors {
     Color(0xfff97418), // Sports
   ];
   static Color grey700 = Colors.grey[700]!;
+  static Color grey850 = Colors.grey[850]!;
+  static Color grey900 = Colors.grey[900]!;
 }
