@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news/core/resources/app_colors.dart';
 import 'package:news/core/resources/app_strings.dart';
+import 'package:news/features/news/presention/widgets/search/build_topic_item.dart';
 
 class TrendingTopicsWidget extends StatelessWidget {
   const TrendingTopicsWidget({super.key});
@@ -42,25 +43,12 @@ class TrendingTopicsWidget extends StatelessWidget {
           spacing: 12.0,
           runSpacing: 12.0,
           children: trendingTopics
-              .map((topic) => _buildTopicButton(topic['title']!))
+              .map((topic) => BuildTopicItem(
+                    title: topic['title']!,
+                  ))
               .toList(),
         ),
       ],
-    );
-  }
-
-  Widget _buildTopicButton(String title) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      decoration: BoxDecoration(
-        color: AppColors.darkPurple,
-        borderRadius: BorderRadius.circular(24),
-      ),
-      child: Text(
-        title,
-        style: const TextStyle(
-            fontWeight: FontWeight.w500, color: AppColors.purple),
-      ),
     );
   }
 }
