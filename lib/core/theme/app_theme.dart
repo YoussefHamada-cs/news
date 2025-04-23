@@ -5,7 +5,6 @@ class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
-      fontFamily: 'Roboto',
       brightness: Brightness.light,
       colorScheme: const ColorScheme.light(
         primary: AppColors.primary,
@@ -38,34 +37,28 @@ class AppTheme {
           color: AppColors.textPrimaryLight,
           fontSize: 32,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Roboto',
         ),
         displayMedium: TextStyle(
           color: AppColors.textPrimaryLight,
           fontSize: 28,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Roboto',
         ),
         displaySmall: TextStyle(
           color: AppColors.textPrimaryLight,
           fontSize: 24,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Roboto',
         ),
         bodyLarge: TextStyle(
           color: AppColors.textPrimaryLight,
           fontSize: 16,
-          fontFamily: 'Roboto',
         ),
         bodyMedium: TextStyle(
           color: AppColors.textSecondaryLight,
           fontSize: 14,
-          fontFamily: 'Roboto',
         ),
         bodySmall: TextStyle(
           color: AppColors.hintText,
           fontSize: 12,
-          fontFamily: 'Roboto',
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
@@ -104,7 +97,6 @@ class AppTheme {
   static ThemeData get darkTheme {
     return ThemeData(
       useMaterial3: true,
-      fontFamily: 'Roboto',
       brightness: Brightness.dark,
       colorScheme: const ColorScheme.dark(
         primary: AppColors.primary,
@@ -137,34 +129,28 @@ class AppTheme {
           color: AppColors.textPrimaryDark,
           fontSize: 32,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Roboto',
         ),
         displayMedium: TextStyle(
           color: AppColors.textPrimaryDark,
           fontSize: 28,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Roboto',
         ),
         displaySmall: TextStyle(
           color: AppColors.textPrimaryDark,
           fontSize: 24,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Roboto',
         ),
         bodyLarge: TextStyle(
           color: AppColors.textPrimaryDark,
           fontSize: 16,
-          fontFamily: 'Roboto',
         ),
         bodyMedium: TextStyle(
           color: AppColors.textSecondaryDark,
           fontSize: 14,
-          fontFamily: 'Roboto',
         ),
         bodySmall: TextStyle(
           color: AppColors.hintText,
           fontSize: 12,
-          fontFamily: 'Roboto',
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news/core/layout/main_shell.dart';
 import 'package:news/core/resources/app_routes.dart';
+import 'package:news/features/news/presention/views/news_details_view.dart';
 import 'package:news/features/news/presention/views/featured_news_view.dart';
 import 'package:news/features/news/presention/views/news_view.dart';
 import 'package:news/features/news/presention/views/search_view.dart';
@@ -35,8 +36,8 @@ class AppRouter {
           ),
           GoRoute(
             path: AppPaths.newsDetail,
-            builder: (context, state) =>
-                const Scaffold(body: Center(child: Text('News Detail'))),
+            name: AppRoutes.newsDetail,
+            builder: (context, state) => const NewsDetailsView(),
           ),
 
           // ==================== Search Tab Routes ====================

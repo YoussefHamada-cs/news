@@ -38,9 +38,13 @@ class FeaturedNewsSection extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: 4,
             itemBuilder: (context, index) {
-              return const Padding(
-                padding: EdgeInsets.only(right: 12),
-                child: FeaturedNewsCard(),
+              return Padding(
+                padding: const EdgeInsets.only(right: 12),
+                child: GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppRoutes.newsDetail);
+                    },
+                    child: const FeaturedNewsCard()),
               );
             },
           ),
