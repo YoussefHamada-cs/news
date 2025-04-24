@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news/core/presention/widgets/custom_listview_vertical.dart';
 import 'package:news/core/presention/widgets/latest_news_card.dart';
 import 'package:news/core/resources/app_strings.dart';
 
@@ -16,10 +17,14 @@ class FeaturedNewsView extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       )),
-      body: ListView.builder(
+      body: CustomListviewVertical(
         itemCount: 5,
         itemBuilder: (context, index) => const Padding(
-          padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+          padding: EdgeInsets.only(
+            top: 16,
+            right: 16,
+            left: 16,
+          ),
           child: LatestNewsCard(
             imageurl:
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS47l-TBwq5J39we3hCYx0sV19z51nemqGCYAP4ZZCYSw&s&ec=72940543',
