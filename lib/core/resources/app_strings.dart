@@ -96,7 +96,10 @@ class AppStrings {
   static const String darkMode = 'Dark Mode';
   static const String english = 'English';
   static const String arabic = 'Arabic';
-
+  static const String privacy = 'privacy';
+  static const String updateApp = 'Update App';
+  static const String dailySummary = 'DailySummary';
+  static const String protfolioArticales = 'ProtfolioArticales';
   // ==================== Help & Support ====================
   static const String connectUs = 'Connect us';
   static const String frequentlyAskedQuestions = 'Frequently Asked Questions';
