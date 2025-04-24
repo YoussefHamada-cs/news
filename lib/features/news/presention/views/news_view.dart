@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news/core/presention/widgets/custom_app_bar.dart';
+import 'package:news/features/news/presention/widgets/custom_app_bar.dart';
 import 'package:news/features/news/presention/widgets/featured_news_section.dart';
 import 'package:news/features/news/presention/widgets/latest_news_section.dart';
 
