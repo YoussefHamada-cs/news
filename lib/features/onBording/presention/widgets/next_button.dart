@@ -19,6 +19,38 @@ class NextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final isLastPage = currentPage == totalPages - 1;
 
+    // الحصول على أبعاد الشاشة
+    final Size screenSize = MediaQuery.of(context).size;
+    final bool isSmallScreen = screenSize.height < 600;
+    final bool isTablet = screenSize.width > 600;
+
+    // ضبط الأحجام بناءً على حجم الشاشة
+    final double horizontalPadding = isSmallScreen
+        ? 10.0
+        : isTablet
+            ? 20.0
+            : 15.0;
+    final double verticalPadding = isSmallScreen
+        ? 8.0
+        : isTablet
+            ? 12.0
+            : 10.0;
+    final double fontSize = isSmallScreen
+        ? 14.0
+        : isTablet
+            ? 18.0
+            : 16.0;
+    final double iconSize = isSmallScreen
+        ? 18.0
+        : isTablet
+            ? 24.0
+            : 20.0;
+    final double spacingWidth = isSmallScreen
+        ? 6.0
+        : isTablet
+            ? 10.0
+            : 8.0;
+
     return ElevatedButton(
       onPressed: () {
         if (currentPage < totalPages - 1) {
@@ -31,9 +63,9 @@ class NextButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
-        padding: const EdgeInsets.symmetric(
-          horizontal: 15,
-          vertical: 10,
+        padding: EdgeInsets.symmetric(
+          horizontal: horizontalPadding,
+          vertical: verticalPadding,
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
@@ -44,10 +76,10 @@ class NextButton extends StatelessWidget {
         children: [
           Text(
             isLastPage ? AppStrings.start : AppStrings.next,
-            style: const TextStyle(fontSize: 16),
+            style: TextStyle(fontSize: fontSize),
           ),
-          const SizedBox(width: 8),
-          const Icon(Icons.arrow_forward, color: Colors.white),
+          SizedBox(width: spacingWidth),
+          Icon(Icons.arrow_forward, color: Colors.white, size: iconSize),
         ],
       ),
     );
