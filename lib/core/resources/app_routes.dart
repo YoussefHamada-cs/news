@@ -13,6 +13,7 @@ class AppRoutes {
   static const String newsDetail = '/news-detail';
   static const String categories = '/categories';
   static const String newsByCategory = '/news-by-category';
+  static const String categoryDetails = '/category-details';
 
   // Bookmark
   static const String bookmark = '/bookmark';
@@ -37,6 +38,7 @@ class AppPaths {
   static const String newsDetail = '/news-detail';
   static const String categories = '/categories';
   static const String newsByCategory = '/news-by-category';
+  static const String categoryDetails = '/category-details';
 
   // Bookmark
   static const String bookmark = '/bookmark';
