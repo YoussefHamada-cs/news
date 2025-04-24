@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news/core/resources/app_strings.dart';
 import 'package:news/features/profile/presentation/widgets/connect_us_section.dart';
-
+import 'package:news/features/profile/presentation/widgets/codes_section_widget.dart';
 import 'package:news/features/profile/presentation/widgets/log_out_button.dart';
 import 'package:news/features/profile/presentation/widgets/profile_card_widget.dart';
 import 'package:news/features/profile/presentation/widgets/settings_section_widget.dart';
@@ -29,6 +29,11 @@ class ProfileView extends StatelessWidget {
 
             // Settings Section
             SettingsSectionWidget(),
+
+            SizedBox(height: 24),
+
+            // Codes Section
+            CodesSectionWidget(),
 
             SizedBox(height: 24),
 

@@ -4,12 +4,14 @@ import 'package:news/core/layout/main_shell.dart';
 import 'package:news/core/resources/app_routes.dart';
 import 'package:news/features/bookmark/presrntation/views/book_mark_view.dart';
 import 'package:news/features/categories/presentation/views/categories_view.dart';
+import 'package:news/features/categories/presentation/views/category_details_view.dart';
 import 'package:news/features/news/presention/views/news_details_view.dart';
 import 'package:news/features/news/presention/views/featured_news_view.dart';
 import 'package:news/features/news/presention/views/news_view.dart';
 import 'package:news/features/news/presention/views/search_view.dart';
 import 'package:news/features/onBording/presention/views/onbording_view.dart';
 import 'package:news/features/profile/presentation/views/profile_view.dart';
+import 'package:news/features/categories/domain/entities/category.dart';
 
 class AppRouter {
   final GoRouter router = GoRouter(
@@ -74,8 +76,19 @@ class AppRouter {
           ),
           GoRoute(
             path: AppPaths.newsByCategory,
-            builder: (context, state) =>
-                const Scaffold(body: Center(child: Text('News By Category'))),
+            name: AppRoutes.newsByCategory,
+            builder: (context, state) {
+              final category = state.extra as Category;
+              return CategoryDetailsView(category: category);
+            },
+          ),
+          GoRoute(
+            path: AppPaths.categoryDetails,
+            name: AppRoutes.categoryDetails,
+            builder: (context, state) {
+              final category = state.extra as Category;
+              return CategoryDetailsView(category: category);
+            },
           ),
 
           // ==================== Bookmark Routes ====================

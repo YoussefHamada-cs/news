@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:news/core/presention/widgets/custom_listview_vertical.dart';
+import 'package:news/core/resources/app_routes.dart';
 import 'package:news/core/resources/app_strings.dart';
 import 'package:news/core/resources/app_colors.dart';
 import 'package:news/features/categories/domain/entities/category.dart';
-import 'package:news/features/categories/presentation/views/category_details_view.dart';
 import 'package:news/features/categories/presentation/widgets/category_card.dart';
 import 'package:news/features/categories/presentation/widgets/category_list_item.dart';
 
@@ -19,11 +20,9 @@ class _CategoriesViewState extends State<CategoriesView> {
   bool isGridView = true;
 
   void _navigateToCategoryDetails(Category category) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => CategoryDetailsView(category: category),
-      ),
+    context.pushNamed(
+      AppRoutes.categoryDetails,
+      extra: category,
     );
   }
 
