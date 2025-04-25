@@ -7,9 +7,9 @@ class CustomListviewVertical extends StatelessWidget {
   final Widget Function(BuildContext, int) itemBuilder;
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
+    return ListView.builder(
         itemCount: itemCount,
-        separatorBuilder: (context, index) => const SizedBox(height: 16),
+        //separatorBuilder: (context, index) => const SizedBox(height: 16),
         itemBuilder: itemBuilder);
   }
 }
