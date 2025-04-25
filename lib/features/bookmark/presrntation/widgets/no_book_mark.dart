@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/core/resources/app_colors.dart';
+import 'package:news/core/resources/app_strings.dart';
 
 class NoBookMark extends StatelessWidget {
   const NoBookMark({super.key});
@@ -14,12 +15,12 @@ class NoBookMark extends StatelessWidget {
               size: 100, color: Colors.grey),
           const SizedBox(height: 20),
           const Text(
-            'لا توجد مقالات محفوظة',
+            AppStrings.noBookmarksYet,
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
           const Text(
-            'يمكنك حفظ المقالات المفضلة لديك هنا',
+            AppStrings.noBookmarksYetDescription,
             style: TextStyle(fontSize: 16, color: Colors.grey),
           ),
           const SizedBox(height: 20),
@@ -35,7 +36,7 @@ class NoBookMark extends StatelessWidget {
             ),
             // ignore: prefer_const_constructors
             child: Text(
-              'استكشاف المقالات',
+              AppStrings.browseArticles,
               style: const TextStyle(fontSize: 16, color: Colors.white),
             ),
           ),
