@@ -13,7 +13,7 @@ class FeaturedNewsCard extends StatelessWidget {
       height: 160,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: Colors.grey[900],
+        color: Theme.of(context).cardColor,
       ),
       child: Stack(
         children: [

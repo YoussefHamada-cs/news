@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:news/core/presention/widgets/shimmer_image.dart';
-import 'package:news/core/resources/app_colors.dart';
 
 class LatestNewsCard extends StatelessWidget {
   const LatestNewsCard(
@@ -18,7 +17,7 @@ class LatestNewsCard extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.grey900,
+        color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
