@@ -51,16 +51,11 @@ class CategoryCard extends StatelessWidget {
               category.name,
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
                   ),
             ),
             const SizedBox(height: 4),
-            Text(
-              '${category.articlesCount} مقالة',
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: AppColors.textSecondaryDark,
-                  ),
-            ),
+            Text('${category.articlesCount} مقالة',
+                style: Theme.of(context).textTheme.bodySmall),
           ],
         ),
       ),

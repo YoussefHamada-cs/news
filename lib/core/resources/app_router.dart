@@ -14,8 +14,11 @@ import 'package:news/features/profile/presentation/views/profile_view.dart';
 import 'package:news/features/categories/domain/entities/category.dart';
 
 class AppRouter {
-  final GoRouter router = GoRouter(
-    initialLocation: AppPaths.onboarding1,
+  final bool onboardingSeen;
+  AppRouter({required this.onboardingSeen});
+
+  late final GoRouter router = GoRouter(
+    initialLocation: onboardingSeen ? AppPaths.home : AppPaths.onboarding1,
     routes: [
       // ==================== Auth & Onboarding Routes ====================
 

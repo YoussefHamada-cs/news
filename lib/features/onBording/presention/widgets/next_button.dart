@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news/core/resources/app_routes.dart';
 import 'package:news/core/resources/app_strings.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class NextButton extends StatelessWidget {
   final int currentPage;
@@ -52,11 +53,14 @@ class NextButton extends StatelessWidget {
             : 8.0;
 
     return ElevatedButton(
-      onPressed: () {
+      onPressed: () async {
         if (currentPage < totalPages - 1) {
           onNextPage();
         } else {
-          // Navigate to home screen
+          // حفظ حالة مشاهدة الـ Onboarding
+          var box = await Hive.openBox('settings');
+          await box.put('onboardingSeen', true);
+          // الانتقال للرئيسية
           context.pushReplacementNamed(AppRoutes.home);
         }
       },

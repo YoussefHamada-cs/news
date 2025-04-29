@@ -78,19 +78,20 @@ class _CategoryDetailsViewState extends State<CategoryDetailsView> {
           const SizedBox(height: 16),
           // Articles list
           Expanded(
-            child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: CustomListviewVertical(
-                  itemCount: articles.length,
-                  itemBuilder: (context, index) => const LatestNewsCard(
-                    imageurl:
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS47l-TBwq5J39we3hCYx0sV19z51nemqGCYAP4ZZCYSw&s&ec=72940543',
-                    time: '4 min',
-                    content:
-                        'Global Climate Summit Reaches Breakthrough Agreement',
-                    type: 'Global News Network',
-                  ),
-                )),
+            child: CustomListviewVertical(
+              itemCount: articles.length,
+              itemBuilder: (context, index) => const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: LatestNewsCard(
+                  imageurl:
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS47l-TBwq5J39we3hCYx0sV19z51nemqGCYAP4ZZCYSw&s&ec=72940543',
+                  time: '4 min',
+                  content:
+                      'Global Climate Summit Reaches Breakthrough Agreement',
+                  type: 'Global News Network',
+                ),
+              ),
+            ),
           ),
         ],
       ),
