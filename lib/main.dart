@@ -5,27 +5,32 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:news/core/resources/app_router.dart';
 import 'package:news/core/theme/app_theme.dart';
 import 'package:news/core/theme/theme_cubit.dart';
+import 'package:news/features/onBording/data/on_bording_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // تهيئة Hive
   await Hive.initFlutter();
+  await Hive.openBox('appBox');
+
+  // تهيئة خدمة الشاشة التعريفية
+  await OnboardingService().initialize();
+
   var box = await Hive.openBox('settings');
-  final onboardingSeen = box.get('onboardingSeen', defaultValue: false) as bool;
+
   final isDark = box.get('isDarkMode', defaultValue: true) as bool;
 
   runApp(MyApp(
-    onboardingSeen: onboardingSeen,
     isDark: isDark,
   ));
 }
 
 class MyApp extends StatelessWidget {
-  final bool onboardingSeen;
   final bool isDark;
 
   const MyApp({
     super.key,
-    required this.onboardingSeen,
     required this.isDark,
   });
 
@@ -45,7 +50,9 @@ class MyApp extends StatelessWidget {
         builder: (context, themeMode) {
           return MaterialApp.router(
             debugShowCheckedModeBanner: false,
-            routerConfig: AppRouter(onboardingSeen: onboardingSeen).router,
+            routerConfig: AppRouter(
+                    onboardingSeen: OnboardingService().onboardingCompleted)
+                .router,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
             themeMode: themeMode,

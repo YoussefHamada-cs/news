@@ -9,22 +9,32 @@ import 'package:news/features/news/presention/views/news_details_view.dart';
 import 'package:news/features/news/presention/views/featured_news_view.dart';
 import 'package:news/features/news/presention/views/news_view.dart';
 import 'package:news/features/news/presention/views/search_view.dart';
+import 'package:news/features/onBording/data/on_bording_service.dart';
 import 'package:news/features/onBording/presention/views/onbording_view.dart';
 import 'package:news/features/profile/presentation/views/profile_view.dart';
 import 'package:news/features/categories/domain/entities/category.dart';
 
 class AppRouter {
   final bool onboardingSeen;
+
   AppRouter({required this.onboardingSeen});
 
   late final GoRouter router = GoRouter(
     initialLocation: onboardingSeen ? AppPaths.home : AppPaths.onboarding1,
+    redirect: (context, state) {
+      final onboardingCompleted = OnboardingService().onboardingCompleted;
+      if (!onboardingCompleted &&
+          state.matchedLocation != AppPaths.onboarding1) {
+        return AppPaths.onboarding1;
+      }
+      return null;
+    },
     routes: [
       // ==================== Auth & Onboarding Routes ====================
-
       GoRoute(
-          path: AppPaths.onboarding1,
-          builder: (context, state) => const OnboardingView()),
+        path: AppPaths.onboarding1,
+        builder: (context, state) => const OnboardingView(),
+      ),
 
       // ==================== Main Shell Route (Bottom Navigation) ====================
       ShellRoute(
@@ -34,9 +44,10 @@ class AppRouter {
         routes: [
           // ==================== Home Tab Routes ====================
           GoRoute(
-              path: AppPaths.home,
-              name: AppRoutes.home,
-              builder: (context, state) => const NewsView()),
+            path: AppPaths.home,
+            name: AppRoutes.home,
+            builder: (context, state) => const NewsView(),
+          ),
           GoRoute(
             path: AppPaths.featuredNews,
             name: AppRoutes.featuredNews,
@@ -72,6 +83,7 @@ class AppRouter {
             builder: (context, state) =>
                 const Scaffold(body: Center(child: Text('Profile Edit'))),
           ),
+
           // ==================== Category Routes ====================
           GoRoute(
             path: AppPaths.categories,
