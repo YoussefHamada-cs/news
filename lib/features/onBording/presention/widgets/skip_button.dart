@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:news/core/resources/app_colors.dart';
+import 'package:hive/hive.dart';
 import 'package:news/core/resources/app_routes.dart';
 import 'package:news/core/resources/app_strings.dart';
 
@@ -28,8 +28,11 @@ class SkipButton extends StatelessWidget {
             : 16.0;
 
     return TextButton(
-      onPressed: () {
-        // Navigate to home screen
+      onPressed: () async {
+        // حفظ حالة مشاهدة الـ Onboarding
+        var box = await Hive.openBox('settings');
+        await box.put('onboardingSeen', true);
+        // الانتقال للرئيسية
         context.pushReplacementNamed(AppRoutes.home);
       },
       style: TextButton.styleFrom(
@@ -46,14 +49,11 @@ class SkipButton extends StatelessWidget {
                   : 8.0,
         ),
       ),
-      child: Text(
-        AppStrings.skip,
-        style: TextStyle(
-          color: AppColors.textPrimaryDark,
-          fontSize: fontSize,
-          fontWeight: isTablet ? FontWeight.bold : FontWeight.normal,
-        ),
-      ),
+      child: Text(AppStrings.skip,
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                fontSize: fontSize,
+                fontWeight: isTablet ? FontWeight.bold : FontWeight.normal,
+              )),
     );
   }
 }

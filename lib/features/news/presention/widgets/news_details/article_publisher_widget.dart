@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:news/core/resources/app_colors.dart';
 import 'package:news/features/news/domain/entities/article.dart';
 
 class ArticlePublisherWidget extends StatelessWidget {
@@ -37,8 +36,8 @@ class ArticlePublisherWidget extends StatelessWidget {
               Text(
                 article.publisherName,
                 style: textTheme.bodyLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.textPrimaryDark),
+                  fontWeight: FontWeight.bold,
+                ),
                 overflow: TextOverflow.ellipsis,
               ),
               const SizedBox(height: 4),

@@ -22,10 +22,7 @@ class ArticleHeaderWidget extends StatelessWidget {
             color: AppColors.purple,
             borderRadius: BorderRadius.circular(20),
           ),
-          child: Text(article.category,
-              style: textTheme.bodyMedium?.copyWith(
-                color: AppColors.textPrimaryDark,
-              )),
+          child: Text(article.category, style: textTheme.bodyMedium),
         ),
         const SizedBox(height: 12),
         Text(
@@ -33,7 +30,6 @@ class ArticleHeaderWidget extends StatelessWidget {
           style: textTheme.headlineSmall?.copyWith(
             fontWeight: FontWeight.bold,
             height: 1.2,
-            color: Colors.white,
           ),
           overflow: TextOverflow.visible,
           softWrap: true,
