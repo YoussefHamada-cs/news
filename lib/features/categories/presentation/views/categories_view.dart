@@ -91,9 +91,12 @@ class _CategoriesViewState extends State<CategoriesView> {
                 )
               : CustomListviewVertical(
                   itemCount: categories.length,
-                  itemBuilder: (context, index) => CategoryListItem(
-                    category: categories[index],
-                    onTap: _navigateToCategoryDetails,
+                  itemBuilder: (context, index) => Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CategoryListItem(
+                      category: categories[index],
+                      onTap: _navigateToCategoryDetails,
+                    ),
                   ),
                 ),
         ),
