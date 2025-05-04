@@ -4,8 +4,10 @@ import 'package:news/core/presention/widgets/latest_news_card.dart';
 import 'package:news/core/resources/app_routes.dart';
 
 class CustomListView extends StatelessWidget {
-  const CustomListView({super.key});
-
+  const CustomListView(
+      {super.key, required this.itemCount, required this.itemBuilder});
+  final int itemCount;
+  final Widget Function(BuildContext, int) itemBuilder;
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
