@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hive/hive.dart';
+
 import 'package:news/core/resources/app_routes.dart';
 import 'package:news/core/resources/app_strings.dart';
+import 'package:news/features/onBording/data/on_bording_service.dart';
 
 class SkipButton extends StatelessWidget {
   const SkipButton({
@@ -30,8 +31,7 @@ class SkipButton extends StatelessWidget {
     return TextButton(
       onPressed: () async {
         // حفظ حالة مشاهدة الـ Onboarding
-        var box = await Hive.openBox('settings');
-        await box.put('onboardingSeen', true);
+        await OnboardingService().completeOnboarding();
         // الانتقال للرئيسية
         context.pushReplacementNamed(AppRoutes.home);
       },
