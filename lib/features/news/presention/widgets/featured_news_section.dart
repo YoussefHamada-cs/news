@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news/core/resources/app_routes.dart';
 import 'package:news/core/resources/app_strings.dart';
+import 'package:news/features/news/domain/entities/article.dart';
 import 'package:news/features/news/presention/widgets/featured_news_card.dart';
 
 class FeaturedNewsSection extends StatelessWidget {
-  const FeaturedNewsSection({super.key});
+  final List<Article> featuredNews;
+
+  const FeaturedNewsSection({
+    super.key,
+    required this.featuredNews,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -36,15 +42,22 @@ class FeaturedNewsSection extends StatelessWidget {
           height: 160,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: 4,
+            itemCount: featuredNews.length,
             itemBuilder: (context, index) {
+              final article = featuredNews[index];
               return Padding(
                 padding: const EdgeInsets.only(right: 12),
                 child: GestureDetector(
-                    onTap: () {
-                      context.pushNamed(AppRoutes.newsDetail);
-                    },
-                    child: const FeaturedNewsCard()),
+                  onTap: () {
+                    context.pushNamed(AppRoutes.newsDetail, extra: article);
+                  },
+                  child: FeaturedNewsCard(
+                    imageUrl: article.imageUrl,
+                    title: article.title,
+                    category: article.category,
+                    time: article.readTime,
+                  ),
+                ),
               );
             },
           ),

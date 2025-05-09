@@ -24,6 +24,7 @@ class CategoryArticles {
             'The $categoryName industry is constantly evolving, with new developments and trends emerging regularly.',
             'Experts in the field of $categoryName predict significant growth in the coming years.',
           ],
+          url: 'https://example.com/categories/$categoryName/article-$i',
           likesCount: i * 100,
           commentsCount: i * 5,
           viewsCount: i * 1000,

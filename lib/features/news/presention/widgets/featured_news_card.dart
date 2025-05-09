@@ -3,7 +3,18 @@ import 'package:news/core/presention/widgets/shimmer_image.dart';
 import 'package:news/core/resources/app_colors.dart';
 
 class FeaturedNewsCard extends StatelessWidget {
-  const FeaturedNewsCard({super.key});
+  final String imageUrl;
+  final String title;
+  final String category;
+  final String? time;
+
+  const FeaturedNewsCard({
+    super.key,
+    required this.imageUrl,
+    required this.title,
+    required this.category,
+    this.time,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +30,7 @@ class FeaturedNewsCard extends StatelessWidget {
         children: [
           // Background Image with Shimmer
           ShimmerImage(
-            imageUrl:
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS47l-TBwq5J39we3hCYx0sV19z51nemqGCYAP4ZZCYSw&s&ec=72940543',
+            imageUrl: imageUrl,
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
@@ -54,7 +64,7 @@ class FeaturedNewsCard extends StatelessWidget {
                 // Category & Time
                 Row(
                   children: [
-                    Text('TechHealth Journal', style: textTheme.bodySmall),
+                    Text(category, style: textTheme.bodySmall),
                     const Spacer(),
                     const Icon(
                       Icons.access_time,
@@ -62,13 +72,13 @@ class FeaturedNewsCard extends StatelessWidget {
                       size: 10,
                     ),
                     const SizedBox(width: 2),
-                    Text('5 min', style: textTheme.bodySmall),
+                    Text(time ?? '5 min', style: textTheme.bodySmall),
                   ],
                 ),
                 const SizedBox(height: 4),
                 // Title
                 Text(
-                  'New AI Technology Revolutionizes Healthcare',
+                  title,
                   style: textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),

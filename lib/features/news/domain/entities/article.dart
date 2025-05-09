@@ -9,6 +9,7 @@ class Article {
   final String readTime;
   final String date;
   final List<String> paragraphs;
+  final String url;
   final String quote;
   final String quoteAuthor;
   final int likesCount;
@@ -27,6 +28,7 @@ class Article {
     required this.readTime,
     required this.date,
     required this.paragraphs,
+    required this.url,
     this.quote = '',
     this.quoteAuthor = '',
     this.likesCount = 0,
@@ -52,6 +54,7 @@ class Article {
           'In addition to cancer detection, AI is now being used to predict patient outcomes, personalize treatment plans, and even assist in complex surgeries. Hospitals implementing these systems report dramatic reductions in diagnostic errors.',
           'However, the integration of AI in healthcare also raises important ethical questions about the role of human doctors and patient privacy. Medical associations are calling for new regulations to ensure AI systems are used responsibly.',
         ],
+        url: 'https://example.com/article/1',
         quote:
             '"We\'re at the beginning of a revolution in medicine," says Dr. Elena Martinez, chief of AI innovation at Mayo Clinic. "These tools will never replace human doctors, but they can dramatically enhance our capabilities."',
         quoteAuthor: 'Dr. Elena Martinez',

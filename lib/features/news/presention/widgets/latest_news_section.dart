@@ -3,10 +3,16 @@ import 'package:go_router/go_router.dart';
 import 'package:news/core/presention/widgets/latest_news_card.dart';
 import 'package:news/core/resources/app_routes.dart';
 import 'package:news/core/resources/app_strings.dart';
+import 'package:news/features/news/domain/entities/article.dart';
 import 'package:news/features/news/presention/widgets/custom_list_view.dart';
 
 class LatestNewsSection extends StatelessWidget {
-  const LatestNewsSection({super.key});
+  final List<Article> latestNews;
+
+  const LatestNewsSection({
+    super.key,
+    required this.latestNews,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -38,25 +44,25 @@ class LatestNewsSection extends StatelessWidget {
 
         // Latest News List
         CustomListView(
-            itemCount: 15,
-            itemBuilder: (context, inDEX) {
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 16),
-                child: GestureDetector(
-                  onTap: () {
-                    context.pushNamed(AppRoutes.newsDetail);
-                  },
-                  child: const LatestNewsCard(
-                    imageurl:
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS47l-TBwq5J39we3hCYx0sV19z51nemqGCYAP4ZZCYSw&s&ec=72940543',
-                    time: '4 min',
-                    content:
-                        'Global Climate Summit Reaches Breakthrough Agreement',
-                    type: 'Global News Network',
-                  ),
+          itemCount: latestNews.length,
+          itemBuilder: (context, index) {
+            final article = latestNews[index];
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: GestureDetector(
+                onTap: () {
+                  context.pushNamed(AppRoutes.newsDetail, extra: article);
+                },
+                child: LatestNewsCard(
+                  imageurl: article.imageUrl,
+                  time: article.readTime,
+                  content: article.title,
+                  type: article.publisherName,
                 ),
-              );
-            }),
+              ),
+            );
+          },
+        ),
       ],
     );
   }
