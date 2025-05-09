@@ -13,6 +13,7 @@ import 'package:news/features/onBording/data/on_bording_service.dart';
 import 'package:news/features/onBording/presention/views/onbording_view.dart';
 import 'package:news/features/profile/presentation/views/profile_view.dart';
 import 'package:news/features/categories/domain/entities/category.dart';
+import 'package:news/features/news/domain/entities/article.dart';
 
 class AppRouter {
   final bool onboardingSeen;
@@ -56,7 +57,10 @@ class AppRouter {
           GoRoute(
             path: AppPaths.newsDetail,
             name: AppRoutes.newsDetail,
-            builder: (context, state) => const NewsDetailsView(),
+            builder: (context, state) {
+              final article = state.extra as Article?;
+              return NewsDetailsView(article: article);
+            },
           ),
 
           // ==================== Search Tab Routes ====================

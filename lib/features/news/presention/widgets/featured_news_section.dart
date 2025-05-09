@@ -47,16 +47,14 @@ class FeaturedNewsSection extends StatelessWidget {
               final article = featuredNews[index];
               return Padding(
                 padding: const EdgeInsets.only(right: 12),
-                child: GestureDetector(
+                child: FeaturedNewsCard(
+                  imageUrl: article.imageUrl,
+                  title: article.title,
+                  category: article.category,
+                  time: article.readTime,
                   onTap: () {
                     context.pushNamed(AppRoutes.newsDetail, extra: article);
                   },
-                  child: FeaturedNewsCard(
-                    imageUrl: article.imageUrl,
-                    title: article.title,
-                    category: article.category,
-                    time: article.readTime,
-                  ),
                 ),
               );
             },

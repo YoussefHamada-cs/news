@@ -8,14 +8,18 @@ import 'package:news/features/news/presention/widgets/news_details/article_inter
 import 'package:news/features/news/presention/widgets/news_details/article_publisher_widget.dart';
 
 class NewsDetailsView extends StatelessWidget {
-  const NewsDetailsView({super.key});
+  final Article? article;
+
+  const NewsDetailsView({super.key, this.article});
 
   @override
   Widget build(BuildContext context) {
     final statusBarHeight = MediaQuery.of(context).viewPadding.top;
 
-    // In a real app, you would get this from a provider or bloc
-    final article = Article.sample;
+    // Get article from route parameters or use sample as fallback
+    final displayArticle = article ??
+        GoRouterState.of(context).extra as Article? ??
+        Article.sample;
 
     return SafeArea(
       child: Scaffold(
@@ -29,7 +33,7 @@ class NewsDetailsView extends StatelessWidget {
                 top: 0,
                 left: 0,
                 right: 0,
-                child: ArticleImageWidget(article: article),
+                child: ArticleImageWidget(article: displayArticle),
               ),
 
               // Custom app bar buttons (back, share, bookmark)
@@ -83,7 +87,7 @@ class NewsDetailsView extends StatelessWidget {
                           ),
                           child: IconButton(
                             icon: Icon(
-                              article.isBookmarked
+                              displayArticle.isBookmarked
                                   ? Icons.bookmark
                                   : Icons.bookmark_outline,
                               color: Colors.white,
@@ -124,13 +128,13 @@ class NewsDetailsView extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            ArticleHeaderWidget(article: article),
+                            ArticleHeaderWidget(article: displayArticle),
                             const SizedBox(height: 16),
-                            ArticlePublisherWidget(article: article),
+                            ArticlePublisherWidget(article: displayArticle),
                             const SizedBox(height: 24),
-                            ArticleContentWidget(article: article),
+                            ArticleContentWidget(article: displayArticle),
                             const SizedBox(height: 16),
-                            ArticleInteractionBar(article: article),
+                            ArticleInteractionBar(article: displayArticle),
                             const SizedBox(height: 40), // Extra bottom padding
                           ],
                         ),

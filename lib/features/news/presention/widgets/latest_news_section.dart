@@ -49,16 +49,14 @@ class LatestNewsSection extends StatelessWidget {
             final article = latestNews[index];
             return Padding(
               padding: const EdgeInsets.only(bottom: 16),
-              child: GestureDetector(
+              child: LatestNewsCard(
+                imageurl: article.imageUrl,
+                time: article.readTime,
+                content: article.title,
+                type: article.publisherName,
                 onTap: () {
                   context.pushNamed(AppRoutes.newsDetail, extra: article);
                 },
-                child: LatestNewsCard(
-                  imageurl: article.imageUrl,
-                  time: article.readTime,
-                  content: article.title,
-                  type: article.publisherName,
-                ),
               ),
             );
           },

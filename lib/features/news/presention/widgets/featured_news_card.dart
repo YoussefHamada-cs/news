@@ -7,6 +7,7 @@ class FeaturedNewsCard extends StatelessWidget {
   final String title;
   final String category;
   final String? time;
+  final VoidCallback? onTap;
 
   const FeaturedNewsCard({
     super.key,
@@ -14,108 +15,112 @@ class FeaturedNewsCard extends StatelessWidget {
     required this.title,
     required this.category,
     this.time,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    return Container(
-      width: 260,
-      height: 160,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        color: Theme.of(context).cardColor,
-      ),
-      child: Stack(
-        children: [
-          // Background Image with Shimmer
-          ShimmerImage(
-            imageUrl: imageUrl,
-            width: double.infinity,
-            height: double.infinity,
-            fit: BoxFit.cover,
-            borderRadius: BorderRadius.circular(12),
-          ),
-
-          // Content Overlay
-          Container(
-            decoration: BoxDecoration(
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 260,
+        height: 160,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          color: Theme.of(context).cardColor,
+        ),
+        child: Stack(
+          children: [
+            // Background Image with Shimmer
+            ShimmerImage(
+              imageUrl: imageUrl,
+              width: double.infinity,
+              height: double.infinity,
+              fit: BoxFit.cover,
               borderRadius: BorderRadius.circular(12),
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Colors.transparent,
-                  Theme.of(context).cardColor.withOpacity(0.8),
+            ),
+
+            // Content Overlay
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.transparent,
+                    Theme.of(context).cardColor.withOpacity(0.8),
+                  ],
+                ),
+              ),
+            ),
+
+            // Text Content
+            Positioned(
+              bottom: 12,
+              left: 12,
+              right: 12,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // Category & Time
+                  Row(
+                    children: [
+                      Text(category, style: textTheme.bodySmall),
+                      const Spacer(),
+                      const Icon(
+                        Icons.access_time,
+                        color: AppColors.iconDisabledLight,
+                        size: 10,
+                      ),
+                      const SizedBox(width: 2),
+                      Text(time ?? '5 min', style: textTheme.bodySmall),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  // Title
+                  Text(
+                    title,
+                    style: textTheme.bodyLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ],
               ),
             ),
-          ),
 
-          // Text Content
-          Positioned(
-            bottom: 12,
-            left: 12,
-            right: 12,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                // Category & Time
-                Row(
-                  children: [
-                    Text(category, style: textTheme.bodySmall),
-                    const Spacer(),
-                    const Icon(
-                      Icons.access_time,
-                      color: AppColors.iconDisabledLight,
-                      size: 10,
+            // Bookmark Button
+            Positioned(
+              top: 6,
+              right: 6,
+              child: Container(
+                height: 35,
+                decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.4), shape: BoxShape.circle
+                    // borderRadius: BorderRadius.circular(15),
                     ),
-                    const SizedBox(width: 2),
-                    Text(time ?? '5 min', style: textTheme.bodySmall),
-                  ],
-                ),
-                const SizedBox(height: 4),
-                // Title
-                Text(
-                  title,
-                  style: textTheme.bodyLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.bookmark_border,
+                    color: AppColors.iconPrimary,
+                    size: 18,
                   ),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
-            ),
-          ),
-
-          // Bookmark Button
-          Positioned(
-            top: 6,
-            right: 6,
-            child: Container(
-              height: 35,
-              decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.4), shape: BoxShape.circle
-                  // borderRadius: BorderRadius.circular(15),
+                  constraints: const BoxConstraints(
+                    minWidth: 20,
+                    minHeight: 20,
                   ),
-              child: IconButton(
-                icon: const Icon(
-                  Icons.bookmark_border,
-                  color: AppColors.iconPrimary,
-                  size: 18,
+                  onPressed: () {
+                    // TODO: Implement bookmark functionality
+                  },
                 ),
-                constraints: const BoxConstraints(
-                  minWidth: 20,
-                  minHeight: 20,
-                ),
-                onPressed: () {
-                  // TODO: Implement bookmark functionality
-                },
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
