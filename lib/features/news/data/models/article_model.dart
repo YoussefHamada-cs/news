@@ -18,7 +18,6 @@ class ArticleModel extends Article {
     int likesCount = 0,
     int commentsCount = 0,
     int viewsCount = 0,
-    bool isBookmarked = false,
   }) : super(
           id: id,
           title: title,
@@ -36,7 +35,6 @@ class ArticleModel extends Article {
           likesCount: likesCount,
           commentsCount: commentsCount,
           viewsCount: viewsCount,
-          isBookmarked: isBookmarked,
         );
 
   factory ArticleModel.fromJson(Map<String, dynamic> json) {
@@ -152,7 +150,6 @@ class ArticleModel extends Article {
       'likesCount': likesCount,
       'commentsCount': commentsCount,
       'viewsCount': viewsCount,
-      'isBookmarked': isBookmarked,
     };
   }
 }

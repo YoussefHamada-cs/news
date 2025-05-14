@@ -8,6 +8,7 @@ class FeaturedNewsCard extends StatelessWidget {
   final String category;
   final String? time;
   final VoidCallback? onTap;
+  final String? id;
 
   const FeaturedNewsCard({
     super.key,
@@ -16,11 +17,13 @@ class FeaturedNewsCard extends StatelessWidget {
     required this.category,
     this.time,
     this.onTap,
+    this.id,
   });
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -90,33 +93,6 @@ class FeaturedNewsCard extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                 ],
-              ),
-            ),
-
-            // Bookmark Button
-            Positioned(
-              top: 6,
-              right: 6,
-              child: Container(
-                height: 35,
-                decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.4), shape: BoxShape.circle
-                    // borderRadius: BorderRadius.circular(15),
-                    ),
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.bookmark_border,
-                    color: AppColors.iconPrimary,
-                    size: 18,
-                  ),
-                  constraints: const BoxConstraints(
-                    minWidth: 20,
-                    minHeight: 20,
-                  ),
-                  onPressed: () {
-                    // TODO: Implement bookmark functionality
-                  },
-                ),
               ),
             ),
           ],

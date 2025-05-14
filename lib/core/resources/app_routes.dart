@@ -21,6 +21,10 @@ class AppRoutes {
   // Profile
   static const String profile = '/profile';
   static const String profileEdit = '/profile-edit';
+
+  // New paths
+  static const String bookmarks = 'bookmarks';
+  static const String newsmarked = 'newsmarked';
 }
 
 class AppPaths {
@@ -46,4 +50,8 @@ class AppPaths {
   // Profile
   static const String profile = '/profile';
   static const String profileEdit = '/profile-edit';
+
+  // New paths
+  static const String bookmarks = 'bookmarks';
+  static const String newsmarked = 'newsmarked';
 }

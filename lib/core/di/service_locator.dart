@@ -16,4 +16,7 @@ void setupServiceLocator() {
 
   // Cubits
   getIt.registerFactory<NewsCubit>(() => NewsCubit(getIt<NewsRepository>()));
+
+  // Add NewsmarkedCubit to service locator if needed
+  // getIt.registerSingleton<NewsmarkedCubit>(NewsmarkedCubit());
 }

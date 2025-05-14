@@ -80,24 +80,6 @@ class NewsDetailsView extends StatelessWidget {
                             },
                           ),
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.4),
-                            shape: BoxShape.circle,
-                          ),
-                          child: IconButton(
-                            icon: Icon(
-                              displayArticle.isBookmarked
-                                  ? Icons.bookmark
-                                  : Icons.bookmark_outline,
-                              color: Colors.white,
-                              size: 18,
-                            ),
-                            onPressed: () {
-                              // Bookmark functionality
-                            },
-                          ),
-                        ),
                       ],
                     ),
                   ],

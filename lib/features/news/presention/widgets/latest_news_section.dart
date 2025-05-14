@@ -54,6 +54,7 @@ class LatestNewsSection extends StatelessWidget {
                 time: article.readTime,
                 content: article.title,
                 type: article.publisherName,
+                id: article.id,
                 onTap: () {
                   context.pushNamed(AppRoutes.newsDetail, extra: article);
                 },

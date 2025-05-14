@@ -52,6 +52,7 @@ class FeaturedNewsSection extends StatelessWidget {
                   title: article.title,
                   category: article.category,
                   time: article.readTime,
+                  id: article.id,
                   onTap: () {
                     context.pushNamed(AppRoutes.newsDetail, extra: article);
                   },

@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news/core/layout/main_shell.dart';
 import 'package:news/core/resources/app_routes.dart';
-import 'package:news/features/bookmark/presrntation/views/book_mark_view.dart';
+
 import 'package:news/features/categories/presentation/views/categories_view.dart';
 import 'package:news/features/categories/presentation/views/category_details_view.dart';
 import 'package:news/features/news/presention/views/news_details_view.dart';
 import 'package:news/features/news/presention/views/featured_news_view.dart';
 import 'package:news/features/news/presention/views/news_view.dart';
 import 'package:news/features/news/presention/views/search_view.dart';
+import 'package:news/features/newsmarked/presentation/views/news_marked_view.dart';
 import 'package:news/features/onBording/data/on_bording_service.dart';
 import 'package:news/features/onBording/presention/views/onbording_view.dart';
 import 'package:news/features/profile/presentation/views/profile_view.dart';
@@ -113,7 +114,7 @@ class AppRouter {
           // ==================== Bookmark Routes ====================
           GoRoute(
             path: AppPaths.bookmark,
-            builder: (context, state) => const BookMarkView(),
+            builder: (context, state) => const NewsMarkedView(),
           ),
         ],
       ),

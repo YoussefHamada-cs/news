@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news/core/di/service_locator.dart';
+import 'package:news/core/presention/widgets/circular_loading_indicator.dart';
 import 'package:news/core/presention/widgets/error_view.dart';
-import 'package:news/core/presention/widgets/loading_indicator.dart';
 import 'package:news/features/news/presention/cubit/news_cubit.dart';
 import 'package:news/features/news/presention/widgets/custom_app_bar.dart';
 import 'package:news/features/news/presention/widgets/featured_news_section.dart';
@@ -21,7 +21,7 @@ class NewsView extends StatelessWidget {
             return const Scaffold(
               appBar: CustomAppBar(),
               body: Center(
-                child: LoadingIndicator(),
+                child: CircularLoadingIndicator(),
               ),
             );
           } else if (state is NewsError) {
@@ -69,7 +69,7 @@ class NewsView extends StatelessWidget {
           return const Scaffold(
             appBar: CustomAppBar(),
             body: Center(
-              child: CircularProgressIndicator(),
+              child: CircularLoadingIndicator(),
             ),
           );
         },
